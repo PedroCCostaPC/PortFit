@@ -1,0 +1,390 @@
+@use '../1-base/variables'
+@use '../1-base/screen'
+@use '../1-base/mixins'
+    
+// ------------------------------ PAGINA DAS AVALIACOES DO ALUNO ------------------------------
+#main-dash-exams
+    width: 85%
+    display: flex
+    flex-direction: column
+    margin-top: 50px
+    margin-bottom: 70px
+
+    @include screen.mobile
+        width: 100%
+
+    #nav-top
+        display: flex
+        justify-content: space-between
+
+        @include screen.mobile
+            flex-direction: column
+            justify-content: center
+
+        .filter
+            width: auto
+
+            @include screen.mobile
+                margin-top: 10px
+                display: flex
+                justify-content: center
+
+            ul
+                @include screen.mobile
+                    top: 60px
+
+        .btn-assemble-exam
+            border: solid 2px variables.$secondary-color
+            background: variables.$secondary-color
+            width: 30%
+            display: flex
+            justify-content: center
+            align-items: center
+            font-family: 'Roboto-Medium'
+
+            &:hover
+                color: variables.$secondary-color
+                background: transparent
+
+            @include screen.mobile
+                width: 100%
+                padding: 15px
+                margin-top: 10px
+
+    // CASO NAO TENHA EXAMES
+    .not-exam
+        margin: 70px 0
+        font-size: 1.3rem
+
+        @include screen.mobile
+            margin: 30px 0
+
+        div
+            padding: 5px 10px
+
+    .add-exam
+        display: flex
+        justify-content: center
+        margin-top: 20px
+
+        a
+            color: variables.$secondary-color
+            border: solid 2px variables.$secondary-color
+            font-size: 1.2rem
+            padding: 20px 70px
+            border-radius: 5px
+
+            &:hover
+                color: variables.$text
+                background: variables.$secondary-color
+
+
+    // BOTOES DOS EXAMES
+    .exams-btns
+        @include screen.mobile
+            flex-direction: column
+            margin-top: 20px
+
+        .btn
+            color: variables.$text
+            width: 150px
+            height: 55px
+            display: flex
+            font-size: 1.1rem
+            justify-content: center
+            align-items: center
+            border-radius: 5px
+            margin-top: 20px
+
+            i
+                color: variables.$text
+                font-size: 1.3rem
+                margin-right: 10px
+                transition: .3s
+
+            &.btn-view
+                background: variables.$success
+                border: solid 2px variables.$success
+
+                &:hover
+                    background: transparent
+                    color: variables.$success
+
+                    i
+                        color: variables.$success
+
+            &.btn-alter
+                background: variables.$btn-file
+                border: solid 2px variables.$btn-file
+
+                &:hover
+                    background: transparent
+                    color: variables.$btn-file
+
+                    i
+                        color: variables.$btn-file
+
+            &.btn-delete
+                background: variables.$critical
+                border: solid 2px variables.$critical
+
+                &:hover
+                    background: transparent
+                    color: variables.$critical
+
+                    i
+                        color: variables.$critical
+
+    
+    // ULTIMO EXAME
+    #last-exam
+        display: flex
+        justify-content: space-between
+        margin-top: 50px
+        background: variables.$primary-color
+        border-radius: 5px
+        padding: 30px
+        @include mixins.shadow-primary
+
+        @include screen.mobile
+            flex-direction: column
+            align-items: center
+            padding: 50px 30px
+
+        .title-date
+            @include screen.mobile
+                text-align: center
+
+            h2
+                color: variables.$secondary-color
+                font-size: 1.3rem
+                font-family: 'Roboto-Light'
+
+            p
+                color: variables.$text
+                margin-top: 30px
+
+        .exams-btns
+            display: flex
+            align-items: center
+
+            .btn
+                margin-left: 20px
+                margin-top: 0
+
+                @include screen.mobile
+                    margin-left: 0
+                    margin-top: 20px
+
+    // TODOS EXAMES
+    #all-exams
+        padding-top: 80px
+
+        .title
+            justify-content: start
+            padding: 0
+
+        .exams
+            width: 90%
+            margin-left: 5%
+            margin-top: 50px
+
+            @include screen.mobile
+                margin-top: 20px
+
+            .order
+                display: flex
+
+                .col
+                    a
+                        font-family: 'Roboto-Medium'
+                        font-size: 1.1rem
+
+                    &.down
+                        margin-left: 50px
+
+            .list-exam
+                display: flex
+                flex-wrap: wrap
+                margin-top: 20px
+
+                @include screen.mobile
+                    flex-direction: column
+                    align-items: center
+                
+                article
+                    @include mixins.shadow-primary
+                    width: 22%
+                    margin: 1.5%
+                    padding: 20px
+                    border-radius: 5px
+
+                    @include screen.mobile
+                        width: 90%
+                        margin-bottom: 30px
+
+                    .exam
+                        display: flex
+                        flex-direction: column
+                        align-items: center
+
+                        h3
+                            color: variables.$secondary-color
+                            font-family: 'Roboto-Medium'
+                            font-size: 1.1rem
+
+                        p
+                            font-family: 'Roboto-Medium'
+                            margin: 50px 0
+
+                            @include screen.mobile
+                                margin: 30px 0 0 0
+
+    // Overlay de delete
+    .overlay
+        .mini-box
+            min-width: 500px
+            display: flex
+            flex-direction: column
+            align-items: center
+            margin: 70px 0
+
+            @include screen.mobile
+                min-width: auto
+                width: 100%
+
+            h6
+                font-size: 1.5rem
+                text-align: center
+
+            p
+                text-align: center
+                font-size: 1.3rem
+                font-family: 'Roboto-Medium'
+                color: variables.$secondary-color
+                margin-top: 5px 
+
+
+// ------------------------------ PAGINA ADICIONAR / ALTERAR AVALIACOES ------------------------------
+#main-dash-exam-form
+    width: 85%
+    display: flex
+    flex-direction: column
+    margin-top: 50px
+    margin-bottom: 70px
+
+    @include screen.mobile
+        width: 100%
+
+    #nav-top
+        display: flex
+        justify-content: space-between
+
+        @include screen.mobile
+            flex-direction: column
+            justify-content: center
+
+        .filter
+            width: auto
+
+            @include screen.mobile
+                margin-top: 10px
+                display: flex
+                justify-content: center
+
+            ul
+                @include screen.mobile
+                    top: 60px
+
+    // FORMULARIO
+    section#form
+        display: flex
+        justify-content: center
+
+        form
+            width: 100%
+            max-width: 700px
+
+            .input-value
+                border-color: variables.$secondary-color
+                background: variables.$secondary-color-light
+
+            .row-inputs
+                display: flex
+                justify-content: space-between
+
+                @include screen.mobile
+                    flex-direction: column
+
+                .col
+                    position: relative
+                    width: 49%
+
+                    &:last-child
+                        @include screen.mobile
+                            margin-top: 40px
+
+                    @include screen.mobile
+                        width: 100%
+
+            .radio
+                margin-bottom: 70px
+
+                @include screen.mobile
+                    margin-bottom: 50px
+
+                p
+                    margin-bottom: 5px
+
+            .date-exam
+                .col
+                    display: flex
+                    padding-top: 20px
+
+                    input
+                        width: 70px
+                        text-align: center
+                        margin-right: 10px
+                        border: none
+                        border-bottom: solid 1px variables.$placeholder
+                        padding: 10px 20px
+
+                        &:focus
+                            border-bottom: solid 1px variables.$secondary-color
+
+                        &#year
+                            width: 130px
+
+
+// ------------------------------ PAGINA DE VISUALIZAR AVALIACOES DO ALUNO ------------------------------
+#main-dash-exam-view
+    width: 85%
+    display: flex
+    flex-direction: column
+    margin-top: 50px
+    margin-bottom: 70px
+
+    @include screen.mobile
+        width: 100%
+
+    #nav-top
+        display: flex
+        justify-content: space-between
+
+        @include screen.mobile
+            flex-direction: column
+            justify-content: center
+
+        .filter
+            width: auto
+
+            @include screen.mobile
+                margin-top: 10px
+                display: flex
+                justify-content: center
+
+            ul
+                @include screen.mobile
+                    top: 60px
+
+

@@ -1,0 +1,513 @@
+@use '../1-base/variables'
+@use '../1-base/screen'
+@use '../1-base/mixins'
+
+// ------------------------------ PAGINA BLOG ------------------------------
+#main-dash-blog
+    width: 85%
+    display: flex
+    flex-direction: column
+    margin-top: 50px
+    margin-bottom: 70px
+
+    @include screen.mobile
+        width: 100%
+
+    .add-and-category
+        display: flex
+        justify-content: space-between
+
+        .btn-open-category
+            color: variables.$text
+            background: variables.$secondary-color
+            border: solid 2px variables.$secondary-color
+            width: 120px
+            text-align: center
+            padding: 15px 5px
+            border-radius: 5px
+            font-size: 1.1rem
+
+            &:hover
+                color: variables.$secondary-color
+                background: transparent
+
+    // CATEGORIAS
+    #categories
+        position: fixed
+        width: 80%
+        max-width: 600px
+        height: 100%
+        padding: 20px 0
+        padding-top: 80px
+        z-index: 2
+        top: 0
+        right: 0
+        background: variables.$text
+        transition: .3s
+        @include mixins.shadow-primary
+
+        @include screen.mobile
+            width: 100%
+
+        &.close
+            right: -80%
+
+            @include screen.mobile
+                right: -100%
+
+        .btn-close-overlay
+            color: variables.$secondary-color
+            background: transparent
+            border: solid 2px variables.$secondary-color
+            padding: 10px 20px
+            font-size: 1.2rem
+            border-radius: 5px
+            margin-bottom: 40px
+            margin-left: 20px
+            display: flex
+            align-items: center
+
+            &:hover
+                background: variables.$secondary-color
+                color: variables.$text
+
+        // Categorias
+        div
+            overflow: auto
+            height: 90%
+            padding: 0 20px
+
+            &::-webkit-scrollbar 
+                width: 5px
+
+            &::-webkit-scrollbar-track 
+                background: transparent
+                                    
+            &::-webkit-scrollbar-thumb 
+                background-color: variables.$secondary-color
+                border: none
+
+            article
+                position: relative
+                display: flex
+                margin-bottom: 20px
+                justify-content: space-between
+
+                form
+                    display: flex
+                    width: 90%
+                    margin-bottom: 20px
+
+                    &#form-delete
+                        position: absolute
+                        top: 0
+                        right: 0
+                        width: auto
+
+                        @include screen.mobile
+                            right: -10px
+
+                    input
+                        border: none
+                        border-bottom: solid 1px variables.$placeholder
+                        padding: 10px
+
+                        &:focus
+                            border-color: variables.$secondary-color
+
+                    .update
+                        color: variables.$text
+                        background: variables.$btn-file
+                        border: solid 2px variables.$btn-file
+                        padding: 0 30px
+                        border-radius: 5px
+                        margin-left: 10px
+
+                        &:hover
+                            color: variables.$btn-file
+                            background: transparent
+
+                    .btn-delete
+                        background: variables.$critical
+                        border: solid 2px variables.$critical
+                        width: 40px
+                        height: 40px
+                        border-radius: 5px
+
+                        i
+                            color: variables.$text
+                            font-size: 1.2rem
+                            transition: .3s
+
+                        &:hover
+                            background: transparent
+
+                            i
+                                color: variables.$critical
+
+    // Busca e filtros
+    .search-filter
+        margin-top: 20px
+        display: flex
+
+        @include screen.mobile
+            flex-direction: column
+            align-items: center
+
+        form
+            position: relative
+            width: 100%
+
+            input
+                border-radius: 5px
+                border-color: variables.$primary-color
+
+                @include screen.mobile
+                    margin-bottom: 10px
+
+            button
+                background: variables.$primary-color
+                position: absolute
+                right: 0
+                top: 0
+                width: 60px
+                height: 60px
+                border-radius: 0 5px 5px 0
+
+                i
+                    color: variables.$text
+                    font-size: 1.5rem
+
+
+    // LITS DOS POSTS
+    #posts
+        margin-top: 50px
+
+        .pagenation-bottom
+            margin-top: -20px
+
+        article
+            .article
+                display: flex
+                justify-content: space-between
+                align-items: center
+                border-radius: 5px
+                padding: 20px
+                margin-bottom: 50px
+                transition: .3s
+                @include mixins.shadow-primary
+
+                &:hover
+                    @include mixins.shadow-secondary
+
+                @include screen.mobile
+                    flex-direction: column
+
+                // Banner / titulo / comentarios / data
+                .banner-title-date
+                    display: flex
+
+                    @include screen.mobile
+                        flex-direction: column
+                        align-items: center
+                        width: 100%
+                    
+                    .banner
+                        width: 180px
+                        height: 120px
+                        background-size: cover
+                        background-position: center
+                        background-repeat: no-repeat
+                        border-radius: 5px
+
+                        @include screen.mobile
+                            width: 100%
+                            height: 200px
+
+                    .title-date
+                        display: flex
+                        flex-direction: column
+                        justify-content: space-between
+                        padding: 10px 15px
+
+                        @include screen.mobile
+                            align-items: center
+
+                        h2
+                            font-size: 1.2rem
+                            color: variables.$secondary-color
+                            font-family: 'Roboto-Light'
+
+                        p.comments
+                            color: variables.$placeholder
+                            font-family: 'Roboto-Medium'
+
+                            @include screen.mobile
+                                margin: 10px 0
+
+                        p.published
+                            color: variables.$success
+                            font-family: 'Roboto-Medium'
+
+                            span
+                                color: variables.$placeholder
+                                font-family: 'Roboto-Medium'
+
+                // Rascunho
+                &.inactive
+                    opacity: .6
+
+                    p.published
+                        color: variables.$warm !important 
+
+                // Autor / botoes
+                .author-btns
+                    display: flex
+                    flex-direction: column
+                    align-items: flex-end
+
+                    @include screen.mobile
+                        align-items: center
+
+                    .author
+                        display: flex
+                        align-items: center
+
+                        @include screen.mobile
+                            margin-top: 50px
+                            margin-bottom: 20px
+
+                        figure
+                            width: 50px
+                            height: 50px
+                            background-size: cover
+                            background-position: center
+                            background-repeat: no-repeat
+                            border-radius: 100%
+                            margin-left: 10px
+
+                        small
+                            font-size: 1rem
+                            font-family: 'Roboto-Medium'
+
+                    .btns
+                        margin-top: 30px
+                        display: flex
+                        align-items: center
+
+                        .btn
+                            width: 50px
+                            height: 50px
+                            font-size: 1.7rem
+                            background: transparent
+                            display: flex
+                            justify-content: center
+                            align-items: center
+                            transition: 0s
+
+                            &:hover
+                                font-size: 2.3rem
+
+                            &.btn-email i
+                                color: variables.$primary-color
+
+                            &.btn-sketch i
+                                color: variables.$warm
+
+                            &.btn-view i
+                                color: variables.$success
+
+                            &.btn-comment i
+                                color: variables.$placeholder
+
+                            &.btn-alter i
+                                color: variables.$btn-file
+
+                            &.btn-delete i
+                                color: variables.$critical
+
+            // Overlays
+            .overlay
+                .mini-box
+                    h3
+                        margin: 20px 0 10px 0
+                        text-align: center
+
+                    img
+                        width: 100%
+                        max-width: 450px
+                        margin-bottom: 20px
+
+                &.overlay-send-email
+                    img
+                        margin-bottom: 0
+
+                    p
+                        margin-bottom: 20px
+                        text-align: center
+                        font-family: 'Roboto-Medium'
+
+// ------------------------------ PAGINA CRIAR / ALTERAR BLOG ------------------------------
+#main-dash-blog-form
+    width: 85%
+    display: flex
+    flex-direction: column
+    margin-top: 50px
+    margin-bottom: 70px
+
+    @include screen.mobile
+        width: 100%
+
+    form
+        .banner
+            position: relative
+            width: 100%
+
+            @include screen.mobile
+                margin-bottom: 50px
+
+            .img
+                height: 600px
+                width: 100%
+                display: flex
+                background: variables.$gray
+                overflow: hidden
+                display: flex
+                justify-content: center
+                align-items: center
+
+                @include screen.mobile
+                    min-height: 170px
+                    height: auto
+
+                img
+                    width: 100%
+                    min-height: 100%
+
+            .btn-file
+                position: absolute
+                bottom: 20px
+                left: 20px
+
+        // Categorias
+        .categories
+            display: flex
+            align-items: center
+            margin-top: -10px
+
+            ul
+                list-style: none
+
+            @include screen.mobile
+                flex-direction: column
+                margin-top: 0
+
+            .new-category
+                width: 100%
+                max-width: 400px
+                margin-left: 20px
+
+                @include screen.mobile
+                    margin-top: 10px
+                    margin-left: 0
+
+        // Textarea
+        .textarea
+            margin-top: -50px
+
+            @include screen.mobile
+                margin-top: 0
+
+        .trumbowyg-button-pane
+            z-index: 0
+
+        .trumbowyg-editor
+            height: 500px
+
+            @include screen.mobile
+                height: 300px
+
+        .trumbowyg-editor-box
+            &::-webkit-scrollbar 
+                width: 5px
+
+            &::-webkit-scrollbar-track 
+                background: transparent
+                                            
+            &::-webkit-scrollbar-thumb 
+                background-color: variables.$secondary-color
+                border: none
+                border-radius: 0
+
+        ul
+            list-style: inside
+
+        // Botao de salvar
+        .btn-standard-form
+            margin-top: 50px
+
+
+// ------------------------------ PAGINA COMENTARIOS BLOG ------------------------------     
+#main-dash-blog-comment
+    width: 85%
+    display: flex
+    flex-direction: column
+    margin-top: 50px
+    margin-bottom: 70px
+
+    @include screen.mobile
+        width: 100%
+
+    h1.title
+        margin-top: 20px
+
+        @include screen.mobile
+            padding: 0
+
+    .banner
+        margin-top: 20px
+
+        img
+            width: 100%
+
+    section
+        margin-top: 50px
+
+        article
+            padding: 20px
+            margin-bottom: 50px
+            @include mixins.shadow-primary
+
+            .information
+                display: flex
+                justify-content: space-between
+                margin-bottom: 30px
+
+                h2
+                    font-size: 1.2rem
+                    color: variables.$secondary-color
+
+                small
+                    font-size: .9rem
+                    font-family: 'Roboto-Medium'
+                
+                p
+                    font-family: 'Roboto-Medium'
+
+            // Overlay
+            .overlay form
+                .mini-box 
+                    h3
+                        margin-top: 50px
+
+                    p
+                        margin-top: 10px
+                        margin-bottom: 50px
+                        width: 70%
+
+                        @include screen.mobile
+                            width: 100%
+
+                        span
+                            color: variables.$critical
+                            font-family: 'Roboto-Medium'

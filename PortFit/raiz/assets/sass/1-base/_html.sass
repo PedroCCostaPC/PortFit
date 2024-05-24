@@ -1,0 +1,100 @@
+@use 'variables'
+
+html
+    font-size: 14px
+    letter-spacing: .7px
+    line-height: 22px
+
+*
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+    font-family: 'Roboto-Regular'
+    color: variables.$primary-color
+
+
+// -------------- SCROLL DA PAGINA -----------------
+::-webkit-scrollbar 
+    width: 12px
+
+ 
+::-webkit-scrollbar-track 
+    background: variables.$primary-color
+
+ 
+::-webkit-scrollbar-thumb 
+    background-color: variables.$secondary-color
+    border: solid 3px variables.$primary-color
+    border-radius: 10px
+
+// --------------------------------------------------
+
+main
+    float: left
+    width: 100%
+    margin-top: 70px
+    min-height: 70vh
+
+
+a
+    text-decoration: none
+    transition: .3s
+
+
+ul
+    list-style: none
+
+
+label
+    cursor: auto
+
+// SCROLL DO TEXTAREA
+textarea
+    &::-webkit-scrollbar 
+        width: 3px
+
+ 
+    &::-webkit-scrollbar-track 
+        background: transparent
+
+    
+    &::-webkit-scrollbar-thumb 
+        background-color: variables.$secondary-color
+        border: none
+        border-radius: 0
+
+// TEXTAREA E INPUT PADRAO
+input, textarea
+    width: 100%
+    padding: 20px
+    color: variables.$secondary-color
+    border: solid 1px variables.$placeholder
+    font-size: 1.1rem
+
+    &::placeholder
+        color: variables.$placeholder
+
+    &:focus
+        box-shadow: 0
+        outline: 0
+
+    &:focus-visible
+        border: solid 1px variables.$secondary-color
+
+
+
+// Input do tipo numero
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
+    -webkit-appearance: none
+    margin: 0
+
+input[type=number] 
+    -moz-appearance: textfield
+
+
+button
+    cursor: pointer
+    transition: .3s
+    border: transparent
+
+

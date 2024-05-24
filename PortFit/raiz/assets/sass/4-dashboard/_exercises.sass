@@ -1,0 +1,418 @@
+@use '../1-base/variables'
+@use '../1-base/screen'
+@use '../1-base/mixins'
+
+// ------------------------------ PAGINA EXERCICIOS ------------------------------
+#main-dash-exercises
+    width: 85%
+    display: flex
+    flex-direction: column
+    margin-top: 50px
+    margin-bottom: 70px
+
+    @include screen.mobile
+        width: 100%
+
+    .add-and-category
+        display: flex
+        justify-content: space-between
+
+        .btn-open-category
+            color: variables.$text
+            background: variables.$secondary-color
+            border: solid 2px variables.$secondary-color
+            width: 120px
+            text-align: center
+            padding: 15px 5px
+            border-radius: 5px
+            font-size: 1.1rem
+
+            &:hover
+                color: variables.$secondary-color
+                background: transparent
+
+    // Busca e filtros
+    .search-filter
+        margin-top: 20px
+        display: flex
+
+        @include screen.mobile
+            flex-direction: column
+            align-items: center
+
+        form
+            position: relative
+            width: 100%
+
+            input
+                border-radius: 5px
+                border-color: variables.$primary-color
+
+                @include screen.mobile
+                    margin-bottom: 10px
+
+            button
+                background: variables.$primary-color
+                position: absolute
+                right: 0
+                top: 0
+                width: 60px
+                height: 60px
+                border-radius: 0 5px 5px 0
+
+                i
+                    color: variables.$text
+                    font-size: 1.5rem
+
+    // CATEGORIAS
+    #categories
+        position: fixed
+        width: 80%
+        max-width: 600px
+        height: 100%
+        padding: 20px 0
+        padding-top: 80px
+        z-index: 2
+        top: 0
+        right: 0
+        background: variables.$text
+        transition: .3s
+        @include mixins.shadow-primary
+
+        @include screen.mobile
+            width: 100%
+
+        &.close
+            right: -80%
+
+            @include screen.mobile
+                right: -100%
+
+        .btn-close-overlay
+            color: variables.$secondary-color
+            background: transparent
+            border: solid 2px variables.$secondary-color
+            padding: 10px 20px
+            font-size: 1.2rem
+            border-radius: 5px
+            margin-bottom: 40px
+            margin-left: 20px
+            display: flex
+            align-items: center
+
+            &:hover
+                background: variables.$secondary-color
+                color: variables.$text
+
+        // Categorias
+        div
+            overflow: auto
+            height: 90%
+            padding: 0 20px
+
+            &::-webkit-scrollbar 
+                width: 5px
+
+            &::-webkit-scrollbar-track 
+                background: transparent
+                                    
+            &::-webkit-scrollbar-thumb 
+                background-color: variables.$secondary-color
+                border: none
+
+            article
+                position: relative
+                display: flex
+                margin-bottom: 20px
+                justify-content: space-between
+
+                form
+                    display: flex
+                    width: 90%
+                    margin-bottom: 20px
+
+                    &#form-delete
+                        position: absolute
+                        top: 0
+                        right: 0
+                        width: auto
+
+                        @include screen.mobile
+                            right: -10px
+
+                    input
+                        border: none
+                        border-bottom: solid 1px variables.$placeholder
+                        padding: 10px
+
+                        &:focus
+                            border-color: variables.$secondary-color
+
+                    .update
+                        color: variables.$text
+                        background: variables.$btn-file
+                        border: solid 2px variables.$btn-file
+                        padding: 0 30px
+                        border-radius: 5px
+                        margin-left: 10px
+
+                        &:hover
+                            color: variables.$btn-file
+                            background: transparent
+
+                    .btn-delete
+                        background: variables.$critical
+                        border: solid 2px variables.$critical
+                        width: 40px
+                        height: 40px
+                        border-radius: 5px
+
+                        i
+                            color: variables.$text
+                            font-size: 1.2rem
+                            transition: .3s
+
+                        &:hover
+                            background: transparent
+
+                            i
+                                color: variables.$critical
+    
+        
+    // Lista dos exercicios
+    #exercises
+        margin-top: 50px
+
+        article
+            margin-bottom: 50px
+
+            .article
+                display: flex
+                justify-content: space-between
+                align-items: center
+                border-radius: 5px
+                padding: 10px
+                transition: .3s
+                @include mixins.shadow-primary
+
+                &:hover
+                    @include mixins.shadow-secondary
+
+                @include screen.mobile
+                    flex-direction: column
+                    width: 90%
+                    margin-left: 5%
+                    padding-bottom: 20px
+
+                &.sketch
+                    background: variables.$placeholder
+                    opacity: .7
+
+                // Bnnaer / nome / categoria
+                .banner-name-category
+                    display: flex
+
+                    @include screen.mobile
+                        flex-direction: column
+                        width: 100%
+
+                    .banner
+                        width: 170px
+                        height: 120px
+                        background-size: cover
+                        background-position: center
+                        background-repeat: no-repeat
+                        border-radius: 5px
+
+                        @include screen.mobile
+                            width: 100%
+                            height: 200px
+
+                    .name-category
+                        display: flex
+                        flex-direction: column
+                        justify-content: space-between
+                        padding: 10px
+                        margin-left: 10px
+
+                        @include screen.mobile
+                            align-items: center
+                            margin-bottom: 50px
+
+                        h2
+                            font-size: 1.3rem
+
+                        p
+                            font-family: 'Roboto-Medium'
+
+                            span
+                                font-family: 'Roboto-Medium'
+                                color: variables.$secondary-color
+                
+                // Botoes
+                .btns-standard-alter
+                    margin-right: 10px
+
+            // Overlay
+            .overlay, .main-box
+                h2 span
+                    color: variables.$text
+                    font-family: 'Roboto-Light'
+
+                .mini-box img
+                    margin: 20px 0
+                    width: 100%
+                    max-width: 600px
+
+    .pagenation-bottom
+        margin-top: -20px
+
+
+// ------------------------------ PAGINA ADICIONAR / ALTERAR ------------------------------
+#main-dash-exercise
+    width: 85%
+    display: flex
+    flex-direction: column
+    margin-top: 50px
+    margin-bottom: 70px
+
+    @include screen.mobile
+        width: 100%
+
+    #form-exercise
+        float: left
+        width: 100%
+
+        form
+            margin-top: 50px
+
+            .banner
+                position: relative
+                width: 100%
+
+                .img
+                    height: 600px
+                    width: 100%
+                    display: flex
+                    background: variables.$gray
+                    overflow: hidden
+                    display: flex
+                    justify-content: center
+                    align-items: center
+
+                    @include screen.mobile
+                        min-height: 170px
+                        height: auto
+
+                    img
+                        width: 100%
+                        min-height: 100%
+
+                .btn-file
+                    position: absolute
+                    bottom: 20px
+                    left: 20px
+
+            // Categorias
+            .categories
+                display: flex
+                align-items: center
+                margin-top: -50px
+
+                @include screen.mobile
+                    flex-direction: column
+                    margin-top: 0
+
+                .new-category
+                    width: 100%
+                    max-width: 400px
+                    margin-left: 20px
+
+                    @include screen.mobile
+                        margin-top: 10px
+                        margin-left: 0
+
+            // Video
+            .video
+                position: relative
+                width: 100%
+                margin-bottom: 70px
+
+                p
+                    color: variables.$placeholder
+                    margin-left: 10px
+
+                .img
+                    height: auto
+                    min-height: 500px
+                    width: 100%
+                    display: flex
+                    background: variables.$gray
+                    overflow: hidden
+                    display: flex
+                    justify-content: center
+                    align-items: center
+
+                    @include screen.mobile
+                        min-height: 170px
+                        height: auto
+
+                    video
+                        width: 100%
+                        height: 100%
+                        cursor: pointer
+
+                .btn-file
+                    position: absolute
+                    top: 40px
+                    left: 20px
+
+                    @include screen.mobile
+                        top: 30px
+                        left: 10px
+
+            iframe
+                width: 100%
+                height: auto
+                aspect-ratio: 16 / 9
+
+            // Btn delete video
+            .btn-trash-video
+                background: variables.$critical
+                border: solid 2px variables.$critical
+                width: 70px
+                height: 70px
+                font-size: 1.5rem
+                border-radius: 100%
+                position: absolute
+                top: 40px
+                right: 20px
+
+                @include screen.mobile
+                    width: 50px
+                    height: 50px
+                    right: 10px
+                    top: 30px
+
+                i
+                    color: variables.$text
+                    transition: .3s
+
+                &:hover
+                    width: 75px
+                    height: 75px
+                    transform: rotate(360deg)
+
+                    @include screen.mobile
+                        width: 55px
+                        height: 55px
+
+
+            .video-external .btn-trash-video
+                top: 20px
+
+                @include screen.mobile
+                    width: 50px
+                    height: 50px
+                    right: 10px
+                    top: 10px

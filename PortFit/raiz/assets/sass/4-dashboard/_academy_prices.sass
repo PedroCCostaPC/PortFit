@@ -1,0 +1,247 @@
+@use '../1-base/variables'
+@use '../1-base/screen'
+@use '../1-base/mixins'
+
+// ------------------------------ PAGINA PRECOS ------------------------------
+#main-academy-prices
+    width: 85%
+    display: flex
+    flex-direction: column
+    margin-top: 50px
+    margin-bottom: 70px
+
+    @include screen.mobile
+        width: 100%
+
+    section
+        margin-top: 50px
+
+        article 
+            .article
+                display: flex
+                justify-content: space-between
+                align-items: center
+                margin-bottom: 30px
+                border-radius: 5px
+                padding: 0 20px
+                height: 140px
+                background: variables.$primary-color
+                @include mixins.shadow-primary
+
+                @include screen.mobile
+                    flex-direction: column
+                    height: auto
+                    padding: 30px 20px
+
+                // Inativos
+                &.inactive
+                    background: variables.$gray !important
+                    opacity: .7
+
+                    .price
+                        p, span
+                            color: variables.$primary-color
+
+            &.emphasis
+                position: relative
+                @include mixins.shadow-secondary
+
+                .emphasis-title
+                    position: absolute
+                    top: -20px
+                    left: 0
+                    width: 100%
+                    display: flex
+                    justify-content: center
+
+                    p
+                        width: 300px
+                        text-align: center
+                        background: variables.$secondary-color
+                        font-family: 'Roboto-Bold'
+                        padding: 10px
+                        border-radius: 5px
+                        @include mixins.shadow-secondary
+
+            
+
+            
+
+
+            // Icone e nome
+            .name
+                display: flex
+                align-items: center
+
+                @include screen.mobile
+                    flex-direction: column
+
+                .price-icon
+                    width: 60px
+                    height: 60px
+                    background-size: 100%
+                    background-position: center
+                    background-repeat: no-repeat
+                    display: flex
+                    justify-content: center
+                    align-items: center
+
+                    p
+                        font-size: 1.5rem
+                        margin-top: 10px
+                        color: variables.$secondary-color
+
+                    &.year
+                        width: 80px
+                        height: 80px
+
+                        p
+                            margin-top: -10px
+
+                h2
+                    color: variables.$secondary-color
+                    margin-left: 15px
+                    font-size: 1.4rem
+                    font-family: 'Roboto-Light'
+
+            // Valor
+            .price
+                @include screen.mobile
+                    margin: 50px 0
+
+                p
+                    color: variables.$text
+
+                    span
+                        color: variables.$text
+                        font-size: 3rem
+
+            // botoes
+            .btn-emphasis
+                margin-left: 0
+
+            // Overlay de delete
+            .overlay
+                .main-box
+                    width: 400px
+
+                    @include screen.mobile
+                        width: 90%
+
+                    .mini-box
+                        display: flex
+                        flex-direction: column
+                        align-items: center
+
+                        .name
+                            flex-direction: column
+                            margin-top: 20px
+
+                            h2
+                                background: transparent
+                                padding: 0
+                                margin: 0
+                                margin-top: 10px
+
+                        .price
+                            p, span
+                                color: variables.$primary-color
+
+                            p
+                                margin: 50px 0
+
+                                @include screen.mobile
+                                    margin: 0
+
+
+// ------------------------------ PAGINA ADICIONAR / ALTERAR PRECO ------------------------------
+#main-academy-price
+    width: 85%
+    display: flex
+    flex-direction: column
+    margin-top: 50px
+    margin-bottom: 70px
+
+    @include screen.mobile
+        width: 100%
+
+    section
+        display: flex
+        justify-content: center
+
+        form
+            width: 100%
+            max-width: 600px
+
+            .time-price
+                display: flex
+
+                .time
+                    position: relative
+                    width: 100px
+
+                .price
+                    position: relative
+                    margin-left: 20px
+                    width: 200px
+
+            // Produtos do preco
+            #products
+                margin-top: 70px
+                
+                .prod-row
+                    display: flex
+                    margin-bottom: 30px
+
+                    button
+                        background: variables.$critical
+                        border: solid 2px variables.$critical
+                        width: 60px
+                        height: 50px
+                        margin-right: 20px
+
+                        i
+                            color: variables.$text
+                            font-size: 1.5rem
+                            transition: .3s
+
+                        &:hover
+                            background: transparent
+
+                            i
+                                color: variables.$critical
+
+                    input
+                        border: none
+                        border-bottom: solid 1px variables.$placeholder
+                        padding: 0 20px
+                            
+                        &:focus
+                            border-color: variables.$secondary-color
+
+            // btn de add produto
+            #btn-add-product
+                background: transparent
+                margin-top: 10px
+                height: 40px
+                display: flex
+                align-items: center
+                margin-bottom: 50px
+
+                small
+                    color: variables.$btn-file
+                    font-size: 1.2rem
+
+                span
+                    color: variables.$btn-file
+                    transition: .3s
+                    margin-right: 10px
+                    font-size: 1.2rem
+
+                &:hover
+                    small
+                        text-decoration: underline
+
+                    span
+                        transform: rotate(180deg)
+                        font-size: 2rem

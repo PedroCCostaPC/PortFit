@@ -1,0 +1,410 @@
+@use '../1-base/variables'
+@use '../1-base/screen'
+@use '../1-base/mixins'
+    
+// ------------------------------ PAGINA DAS REFEICOES DO ALUNO ------------------------------
+#main-dash-all-food
+    width: 85%
+    display: flex
+    flex-direction: column
+    margin-top: 50px
+    margin-bottom: 70px
+
+    @include screen.mobile
+        width: 100%
+
+    #nav-top
+        display: flex
+        justify-content: space-between
+
+        @include screen.mobile
+            flex-direction: column
+            justify-content: center
+
+        .filter
+            width: auto
+
+            @include screen.mobile
+                margin-top: 10px
+                display: flex
+                justify-content: center
+
+            ul
+                @include screen.mobile
+                    top: 60px
+
+        .btn-assemble-food
+            border: solid 2px variables.$secondary-color
+            background: variables.$secondary-color
+            width: 30%
+            display: flex
+            justify-content: center
+            align-items: center
+            font-family: 'Roboto-Medium'
+
+            &:hover
+                color: variables.$secondary-color
+                background: transparent
+
+            @include screen.mobile
+                width: 100%
+                padding: 15px
+                margin-top: 10px
+
+    // Nav dos dias da semana
+    .week-nav-dash
+        margin-top: 50px
+
+        @include screen.mobile
+            margin-top: 20px
+
+        ul
+            display: flex
+            flex-wrap: wrap
+
+            li
+                margin: 5px 0
+                padding: 0 15px
+
+                @include screen.mobile
+                padding: 0 25px 0 0
+
+                &:first-child
+                    padding-left: 0
+
+                &:last-child
+                    padding-right: 0
+
+                a
+                    color: variables.$secondary-color
+                    font-family: 'Roboto-Medium'
+
+                    &:hover
+                        color: variables.$primary-color
+                        text-decoration: underline
+
+                    &.day-page
+                        color: variables.$primary-color
+                        text-decoration: underline
+    .title-day
+        margin-top: 30px
+        color: variables.$secondary-color
+        background: variables.$primary-color
+        font-size: 1.2rem
+        font-family: 'Roboto-Light'
+        padding: 20px
+
+
+    // Caso nao tenha refeicao
+    .not-food
+        margin: 70px 0
+        font-size: 1.3rem
+
+        @include screen.mobile
+            margin: 30px 0
+
+        div
+            padding: 5px 10px
+
+    .add-food
+        display: flex
+        justify-content: center
+        margin-top: 20px
+
+        a
+            color: variables.$secondary-color
+            border: solid 2px variables.$secondary-color
+            font-size: 1.2rem
+            padding: 20px 70px
+            border-radius: 5px
+
+            &:hover
+                color: variables.$text
+                background: variables.$secondary-color
+
+
+    // LISTA DAS REFEICOES
+    section#list-food
+        padding: 0 20px
+        padding-top: 20px
+
+        @include screen.mobile
+            padding: 0
+            padding-top: 20px
+
+        article
+            display: flex
+            justify-content: space-between
+            padding: 0 20px
+            padding-bottom: 30px
+            border-bottom: solid 1px variables.$secondary-color
+            margin-bottom: 30px
+
+            @include screen.mobile
+                flex-direction: column
+
+            &:last-child
+                border: none
+
+            .col
+                h3
+                    color: variables.$secondary-color
+                    font-size: 1rem
+                    font-family: 'Roboto-Light'
+                    margin-bottom: 10px
+
+                p
+                    font-family: 'Roboto-Medium'
+
+            .time
+                width: 100px
+
+            .food
+                width: 100%
+                padding: 0 10px
+
+                @include screen.mobile
+                    padding: 0
+                    margin: 20px 0
+
+            .btns-standard-alter
+                width: 200px
+                align-items: center
+
+                .btn-alter
+                    @include screen.mobile
+                        margin: 0
+
+            // OVERLAY DE DELETAR
+            .overlay-delete
+                form
+                    width: 90%
+                    max-width: 600px
+                    min-width: 400px
+
+                    @include screen.mobile
+                        width: 100%
+                        min-width: auto
+
+                    .mini-box
+                        padding: 30px 0 50px 0
+                        display: flex
+
+                    .time
+                        margin-right: 20px
+
+                    h6
+                        font-size: 1rem
+                        color: variables.$secondary-color
+                        font-family: 'Roboto-Light'
+                        margin-bottom: 10px
+                    
+                    p
+                        font-family: 'Roboto-Medium'
+
+            // OVERLAY DE ALTERAR
+            .overlay-update
+                .box
+                    @include screen.mobile
+                        padding: 30px 20px
+
+                form
+                    width: 90%
+                    max-width: 700px
+                    min-width: 900px
+
+                    @include screen.mobile
+                        width: 100%
+                        min-width: auto
+
+                    .mini-box
+                        display: flex
+                        margin-top: 20px
+                        margin-bottom: 30px
+                        align-items: flex-start
+
+                        @include screen.mobile
+                            flex-direction: column
+
+                        .time
+                            display: flex
+                            width: 170px
+                            align-items: center
+
+                            input
+                                text-align: center
+
+                            span
+                                font-size: 2rem
+                                color: variables.$secondary-color
+
+                        textarea
+                            @include screen.mobile
+                                height: 180px
+                    
+
+// ------------------------------ PAGINA DE MONTAR REFEICOES DO ALUNO ------------------------------
+#main-dash-setup-food
+    width: 85%
+    display: flex
+    flex-direction: column
+    margin-top: 50px
+    margin-bottom: 70px
+
+    @include screen.mobile
+        width: 100%
+
+    #nav-top
+        display: flex
+        justify-content: space-between
+
+        @include screen.mobile
+            flex-direction: column
+            justify-content: center
+
+        .filter
+            width: auto
+
+            @include screen.mobile
+                margin-top: 10px
+                display: flex
+                justify-content: center
+
+            ul
+                @include screen.mobile
+                    top: 60px
+
+    // Nav dos dias da semana
+    .week-nav-dash
+        margin-top: 50px
+
+        @include screen.mobile
+            margin-top: 20px
+
+        ul
+            display: flex
+            flex-wrap: wrap
+
+            li
+                margin: 5px 0
+                padding: 0 15px
+
+                @include screen.mobile
+                padding: 0 25px 0 0
+
+                &:first-child
+                    padding-left: 0
+
+                &:last-child
+                    padding-right: 0
+
+                a
+                    color: variables.$secondary-color
+                    font-family: 'Roboto-Medium'
+
+                    &:hover
+                        color: variables.$primary-color
+                        text-decoration: underline
+
+                    &.day-page
+                        color: variables.$primary-color
+                        text-decoration: underline
+
+    .title-day
+        margin-top: 30px
+        color: variables.$secondary-color
+        background: variables.$primary-color
+        font-size: 1.2rem
+        font-family: 'Roboto-Light'
+        padding: 20px
+
+    #titles
+        display: flex
+        background: variables.$secondary-color
+        margin-top: 10px
+
+        @include screen.mobile
+            display: none
+
+        .time-title
+            width: 270px
+            border-right: solid 2px variables.$text
+            padding: 20px
+
+        .food-title
+            flex-grow: 1
+            padding: 20px
+
+        p
+            font-family: 'Roboto-Medium'
+
+    // LISTA DAS REFEICOES
+    section
+        margin-top: 5px
+
+        article
+            display: flex
+            align-items: flex-start
+            border-bottom: solid 1px variables.$secondary-color
+            margin-bottom: 20px
+            padding-bottom: 20px
+
+            @include screen.mobile
+                flex-direction: column
+
+            .trash-time
+                width: 270px
+                display: flex
+                align-items: center
+
+                .btn-trash
+                    width: 60px
+                    height: 60px
+                    background: variables.$critical
+                    border: solid 2px variables.$critical
+                    margin-right: 30px
+
+                    i
+                        color: variables.$text
+                        font-size: 1.5rem
+                        transition: .3s
+
+                    &:hover
+                        background: transparent
+
+                        i
+                            color: variables.$critical
+
+                input
+                    width: 60px
+
+                span
+                    font-size: 2rem
+                    color: variables.$secondary-color
+                    margin: 0 5px
+
+            .food, .supplement
+                flex-grow: 1
+                padding-left: 20px
+
+                @include screen.mobile
+                    padding-left: 0
+                    margin-top: 20px
+
+    .add-food
+        background: transparent
+        border: solid 2px variables.$primary-color
+        font-size: 1.1rem
+        padding: 15px 30px
+        font-family: 'Roboto-Medium'
+
+        &:hover
+            color: variables.$text
+            background: variables.$primary-color
+
+    .btn-standard-form
+        margin-left: 20px
+
+        @include screen.mobile
+            margin-left: 0
+            margin-top: 20px

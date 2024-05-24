@@ -1,0 +1,269 @@
+@use '../1-base/variables'
+@use '../1-base/screen'
+
+#student-evolution
+    article.start
+        display: flex
+        flex-direction: column
+        align-items: center
+        margin-top: 0
+
+        @include screen.mobile
+            margin-top: 20px
+        
+        .photo
+            width: 200px
+            height: 200px
+            background-size: cover
+            background-position: center
+            background-repeat: no-repeat
+            border-radius: 100%
+            margin-bottom: 10px
+
+        .profile-base
+            display: flex
+            align-items: center
+            margin-bottom: 10px
+            width: 100%
+            flex-wrap: wrap
+
+            @include screen.mobile
+                flex-direction: column
+
+            h5
+                color: variables.$text
+                background: variables.$secondary-color
+                min-height: 100%
+                display: flex
+                align-items: center
+                font-size: 1rem
+                font-family: 'Roboto-Light'
+                padding: 20px 30px
+
+                @include screen.mobile
+                    width: 100%
+                    padding: 20px
+                    justify-content: center
+
+            p
+                display: flex
+                align-items: center
+                padding: 20px 30px
+                background: variables.$gray
+                border-right: solid 5px variables.$secondary-color
+                flex-grow: 1
+                font-family: 'Roboto-Medium'
+
+                @include screen.mobile
+                    padding: 20px
+                    justify-content: center
+                    width: 100%
+
+        .row-2
+            width: 100%
+            display: flex
+            justify-content: space-between
+
+            @include screen.mobile
+                flex-direction: column
+
+            .profile-base
+                width: 49.7%
+
+                @include screen.mobile
+                    width: 100%
+
+        .row-3
+            width: 100%
+            display: flex
+            justify-content: space-between
+
+            @include screen.mobile
+                flex-direction: column
+
+            .profile-base
+                width: 33%
+
+                @include screen.mobile
+                    width: 100%
+
+
+    // EVOLUCAO
+    article
+        margin-top: 120px
+
+        @include screen.mobile
+            display: flex
+            flex-direction: column
+            align-items: center
+            margin-top: 50px
+
+        h2
+            display: block
+            color: variables.$text
+            background: variables.$primary-color
+            width: 280px
+            padding: 15px
+            text-align: center
+            font-size: 1.1rem
+            font-family: 'Roboto-Light'
+
+        .exam-title
+            color: variables.$secondary-color
+
+        p
+            font-family: 'Roboto-Medium'
+
+        .col p
+            height: 50px
+            margin-bottom: 1px
+            display: flex
+            justify-content: center
+            align-items: center
+
+            &.gain
+                color: variables.$btn-file
+                background: variables.$blue-clear
+                width: 120px
+
+                @include screen.mobile
+                    width: 100%
+
+
+    article.article
+        padding-bottom: 20px
+
+
+    article#student-height
+        border-bottom: solid 1px variables.$secondary-color
+
+        .row
+            margin-top: 30px
+            display: flex
+            justify-content: space-between
+            padding: 0 20px
+
+            @include screen.mobile
+                flex-direction: column
+                margin-top: 0
+
+    article.article-standard
+        .row
+            margin-top: 30px
+            display: flex
+            justify-content: space-between
+
+            @include screen.mobile
+                flex-direction: column
+                margin-top: 0
+                width: 100%
+
+        .ideal
+            margin-top: 20px
+
+            @include screen.mobile
+                width: 100%
+
+            p
+                text-align: center
+                padding: 20px 0
+                margin-bottom: 2px
+
+    // Agua Corporal
+    article#student-body-water
+        .row
+            border-bottom: dotted 1px variables.$secondary-color
+            padding-bottom: 20px
+
+            &.row-icw
+                border: none
+                padding-bottom: 0
+
+        .ideal
+            .ideal-walter-title
+                color: variables.$text
+                background: variables.$placeholder
+
+            .ideal-walter
+                display: flex
+                justify-content: space-between
+
+                .col
+                    width: 33.2%
+
+                p
+                    padding: 30px 0 
+
+        .water
+            color: variables.$text
+            background: variables.$secondary-color
+            width: 200px
+
+            @include screen.mobile
+                width: 100%
+
+
+    // Pressao arterial
+    article#student-body-pressure
+        .row
+            border-bottom: dotted 1px variables.$secondary-color
+            padding-bottom: 20px
+
+            &.row-diastolic
+                border: none
+                padding-bottom: 0
+
+        .ideal
+            .ideal-pressure-title
+                color: variables.$text
+                background: variables.$placeholder
+                margin-top: 10px
+
+            .ideal-pressure
+                display: flex
+                justify-content: space-between
+
+                .col
+                    width: 49.9%
+
+                p
+                    padding: 30px 0
+
+        .pressure
+            color: variables.$text
+            background: variables.$secondary-color
+            width: 200px
+
+            @include screen.mobile
+                width: 100%
+
+
+
+
+    // Cores da situacao
+    .success
+        background: variables.$success
+        color: variables.$text
+        width: 100%
+
+    .light
+        background: variables.$light
+        color: variables.$primary-color
+        width: 100%
+
+    .warm
+        background: variables.$warm
+        color: variables.$primary-color
+        width: 100%
+
+    .danger
+        background: variables.$danger
+        color: variables.$text
+        width: 100%
+
+    .critical
+        background: variables.$critical
+        color: variables.$text
+        width: 100%
+
+

@@ -1,0 +1,19 @@
+{
+    "description": "Port Fit",
+    "authors": [
+        {
+            "name": "Pedro Cesar",
+            "email": "pedro.ccosta@hotmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Core\\": "core",
+            "App\\": "app",
+            "Sts\\": "app/sts"
+        }
+    },
+    "require": {
+        "phpmailer/phpmailer": "^6.8"
+    }
+}

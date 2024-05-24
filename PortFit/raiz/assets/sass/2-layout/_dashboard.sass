@@ -1,0 +1,481 @@
+@use '../1-base/variables'
+@use '../1-base/screen'
+@use '../1-base/mixins'
+
+// TITULO PRINCIPAL DO DASHBOARD / AREA DO ALUNO
+#title-dash
+    margin-top: 30px
+
+    .title
+        justify-content: start
+        padding: 0
+
+// --------------- NAV DO DASHBOARD / AREA DO ALUNO ---------------
+#main-nav
+    position: fixed
+    width: 400px
+    height: 100%
+    top: 0
+    left: 0
+    background: variables.$text
+    z-index: 2
+    @include mixins.shadow-primary
+    transition: .3s
+
+    @include screen.mobile
+        width: 100%
+
+    &.open
+        left: -400px
+
+        @include screen.mobile
+            left: -100%
+
+
+    // BTN OPEN
+    .btn-open
+        background: variables.$secondary-color
+        padding: 40px 10px
+        position: absolute
+        right: -37px
+        top: 46%
+        border-radius: 0 50% 50% 0
+        @include mixins.shadow-nav
+
+        &.anime-close i
+            transform: rotate(180deg)
+
+        i
+            color: variables.$text
+            font-size: 2rem
+            transition: .3s
+
+        &.mobile
+            @include screen.mobile
+                right: 0
+                z-index: 1
+                border-radius: 50% 0 0 50%
+
+    // NAV
+    #nav-dashboard
+        overflow: auto
+        padding-top: 70px
+        height: 100%
+
+        // SCROLL 
+        &::-webkit-scrollbar 
+            width: 5px
+
+        &::-webkit-scrollbar-thumb 
+            border: solid 0px variables.$primary-color
+            border-radius: 0
+
+        // Perfio do usuario
+        .profile
+            width: 100%
+            height: 250px
+            display: flex
+            flex-direction: column
+            align-items: center
+            background: variables.$primary-color
+
+            .my-photo
+                width: 130px
+                height: 130px
+                border-radius: 100%
+                overflow: hidden
+                margin-top: 30px
+                background-size: cover
+                background-position: center
+                background-repeat: no-repeat
+
+            h2
+                color: variables.$text
+                margin-top: 10px
+                font-family: 'Roboto-Thin'
+
+            small
+                color: variables.$secondary-color
+                font-family: 'Roboto-Medium'
+
+
+        // MENU
+        .menu
+            li
+                border-top: solid 1px variables.$secondary-color
+
+                &:last-child
+                    border-bottom: solid 1px variables.$secondary-color
+
+                a
+                    position: relative
+                    color: variables.$primary-color
+                    background: variables.$text
+                    display: flex
+                    padding: 20px
+                    display: flex
+                    align-items: center
+                    font-size: 1.3rem
+
+                    i
+                        color: variables.$primary-color
+                        font-size: 2rem
+                        margin-right: 10px
+                        transition: .3s
+
+                    span
+                        color: variables.$text
+                        background: variables.$secondary-color
+                        position: absolute
+                        right: 15px
+                        padding: 12px
+                        border-radius: 100%
+                        font-family: 'Roboto-Medium'
+
+                    &:hover
+                        color: variables.$secondary-color
+                        background: variables.$primary-color
+
+                        i
+                            color: variables.$secondary-color
+
+
+// --------------- OVERLAYS DO DASHBOARD / AREA DO ALUNO ---------------
+.overlay
+    position: fixed
+    z-index: 10
+    background-color: rgba(0, 0, 0, .7)
+    width: 100%
+    height: 100%
+    top: 0
+    right: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    transition: .3s
+
+    &.close-overlay
+        right: -100%
+
+    .main-box
+        background: variables.$text
+        border-radius: 5px
+        overflow: hidden
+        transition: .3s
+        overflow: auto
+
+        &::-webkit-scrollbar 
+            width: 5px
+
+        &::-webkit-scrollbar-track 
+            background: transparent
+                            
+        &::-webkit-scrollbar-thumb 
+            background-color: variables.$secondary-color
+            border: none
+
+        &.close-box
+            opacity: 0
+
+
+        @include screen.mobile
+            width: 90%
+
+        h2
+            font-size: 1.3rem
+            color: variables.$secondary-color
+            font-family: 'Roboto-Light'
+            background: variables.$primary-color
+            text-align: center
+            padding: 25px
+
+        .box
+            padding: 30px
+            display: flex
+            flex-direction: column
+            
+            .btn-close-overlay
+                font-size: 1.2rem
+                color: variables.$secondary-color
+                border: solid 2px variables.$secondary-color
+                background: transparent
+                padding: 14px 25px
+                border-radius: 5px
+                width: 130px
+                display: flex
+                align-items: center
+                justify-content: center
+
+                i
+                    color: variables.$secondary-color
+                    margin-right: 7px
+                    font-size: 1.7rem
+                    transition: .3s
+
+                &:hover
+                    background: variables.$secondary-color
+                    color: variables.$text
+
+                    i
+                        color: variables.$text
+
+
+// --------------- MINI NAV DO DASHBOARD / AREA DO ALUNO ---------------
+.mini-nav-dash ul
+    li
+        float: left
+        margin-bottom: 33px
+        margin-right: 4px
+
+        a
+            color: variables.$text
+            background: variables.$secondary-color
+            border: solid 2px variables.$secondary-color
+            border-radius: 5px
+            padding: 15px 30px
+
+            &:hover
+                color: variables.$secondary-color
+                background: transparent
+
+
+// --------------- BTN FILE DE FORM PADRAO DO DASHBOARD / AREA DO ALUNO ---------------
+.btn-file
+    input
+        display: none
+
+    label
+        color: variables.$text
+        background: variables.$btn-file
+        border: solid 2px variables.$btn-file
+        padding: 20px
+        font-family: 'Roboto-Medium'
+        width: 230px
+        display: flex
+        justify-content: center
+        cursor: pointer
+        transition: .3s
+
+        i
+            color: variables.$text
+            font-size: 1.5rem
+            margin-right: 7px
+            transition: .3s
+
+        &:hover
+            color: variables.$btn-file
+            background: transparent
+
+            i
+                color: variables.$btn-file
+            
+// --------------- INPUT PADRAO DO FORM DO DASHBOARD / AREA DO ALUNO ---------------
+.form-standard
+    .row
+        position: relative
+        margin: 50px 0
+
+        @include screen.mobile
+            margin: 35px 0
+
+        label
+            position: absolute
+            color: variables.$placeholder
+            left: 10px
+            top: -21px
+            transition: .3s
+
+            &.start
+                top: 20px
+                left: 20px
+
+// Btn padrao dos form
+.btn-standard-form
+    color: variables.$text
+    background: variables.$secondary-color
+    border: solid 2px variables.$secondary-color
+    font-size: 1.1rem
+    width: 160px
+    padding: 15px 20px
+
+    &:hover
+        color: variables.$secondary-color
+        background: transparent
+
+
+
+// --------------- CAMPO DE FILTRO DO DASHBOARD / AREA DO ALUNO ---------------
+.filter
+    position: relative
+    width: 400px
+    padding-left: 20px
+    z-index: 1
+
+    @include screen.mobile
+        padding-left: 0
+        width: auto
+
+    .btn-open-filter
+        width: 300px
+        background: variables.$primary-color
+        height: 60px
+        border-radius: 5px
+        color: variables.$text
+        font-size: 1.1rem
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding: 20px
+
+        i
+            color: variables.$text
+
+    ul
+        position: absolute
+        margin-top: 2px
+        width: 300px
+        background: variables.$primary-color
+        border-radius: 5px
+        padding-bottom: 20px
+
+        li
+            a
+                display: block
+                width: 80%
+                margin-left: 10%
+                color: variables.$text
+                text-align: center
+                padding: 30px 10px
+                border-bottom: solid 1px variables.$text
+
+                &:hover
+                    color: variables.$secondary-color
+
+            &:last-child
+                a
+                    border: solid 2px variables.$secondary-color
+                    padding: 15px 0
+                    background: variables.$secondary-color
+                    border-radius: 5px
+                    margin-top: 40px
+
+                    &:hover
+                        background: transparent
+
+    // classe de interacao
+    &.open
+        .btn-open-filter
+            i
+                transform: rotate(180deg)
+        ul
+            display: none
+
+
+// --------------- RESULTADO DAS BUSCAS ---------------
+.result-search
+    background: variables.$secondary-color
+    margin-top: 10px
+    padding: 20px
+    display: flex
+    justify-content: space-between
+
+    p
+        font-family: 'Roboto-Medium'
+        color: variables.$text
+
+        span
+            font-family: 'Roboto-Bold'
+
+.title-search-result
+    margin-top: 20px
+    justify-content: start
+    padding: 0
+
+    div
+        font-size: 1.3rem
+        font-family: 'Roboto-Regular'
+
+
+// --------------- BOTAO PADRAO DE RETORNO ---------------
+.btn-return-dash
+    font-size: 1.2rem
+    color: variables.$secondary-color
+    border: solid 2px variables.$secondary-color
+    background: transparent
+    padding: 14px 25px
+    border-radius: 5px
+    width: 130px
+    display: flex
+    align-items: center
+    justify-content: center
+
+    i
+        color: variables.$secondary-color
+        margin-right: 5px
+        transition: .3s
+
+    &:hover
+        background: variables.$secondary-color
+        color: variables.$text
+
+        i
+            color: variables.$text
+
+
+// --------------- INPUT SELECT PADRAO DO DASH ---------------
+.input-select
+    position: relative
+    width: 300px
+
+    &.close
+        button i
+            transform: rotate(180deg)
+
+        ul
+            display: none
+
+    button
+        width: 100%
+        color: variables.$text
+        background: variables.$primary-color
+        font-size: 1.1rem
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding: 0 20px
+        height: 60px
+
+        i
+            color: variables.$text
+
+    ul
+        position: absolute
+        width: 100%
+        max-height: 300px
+        left: 0
+        top: 61px
+        background: variables.$placeholder
+        overflow: auto
+        z-index: 1
+        padding-right: 5px
+
+        &::-webkit-scrollbar 
+            width: 5px
+
+        &::-webkit-scrollbar-track 
+            background: transparent
+                                                
+        &::-webkit-scrollbar-thumb 
+            background-color: variables.$secondary-color
+            border: none
+
+        li
+            padding: 20px
+            border-bottom: solid 1px #8b8989
+            cursor: pointer
+
+            &:hover
+                background: variables.$secondary-color
+
+            p
+                color: variables.$text

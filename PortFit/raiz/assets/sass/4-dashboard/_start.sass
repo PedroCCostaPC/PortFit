@@ -1,0 +1,94 @@
+@use '../1-base/variables'
+@use '../1-base/screen'
+@use '../1-base/mixins'
+
+#page-start-cards
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    margin-top: 50px
+    width: 85%
+
+    @include screen.mobile
+        flex-direction: column
+        width: 95%
+
+    .btn-card
+        position: relative
+        flex-basis: 47%
+        background: variables.$primary-color
+        border-radius: 5px
+        @include mixins.shadow-primary
+        padding: 20px
+        text-align: left
+        margin-bottom: 50px
+        min-height: 180px
+        display: flex
+        flex-direction: column
+
+        @include screen.mobile
+            width: 100%        
+
+        &:hover
+            background: variables.$text
+
+            p
+                color: variables.$primary-color
+
+        h2
+            color: variables.$secondary-color
+            font-family: 'Roboto-Light'
+            font-size: 1.5rem
+            display: flex
+            align-items: center
+            margin-bottom: 20px
+
+            i
+                color: variables.$secondary-color
+                font-size: 1.7rem
+                margin-right: 10px
+
+        p, small
+            color: variables.$text
+            font-size: 1.1rem
+            line-height: 22px
+            letter-spacing: .7px
+            transition: .3s
+
+        small
+            position: absolute
+            color: variables.$secondary-color
+            right: 20px
+            bottom: 20px
+
+            span
+                color: variables.$text
+                background: variables.$secondary-color
+                padding: 12px
+                border-radius: 100%
+
+    // Overlay
+    .overlay
+        a
+            margin-top: 30px
+            color: variables.$text
+            background: variables.$secondary-color
+            border: solid 2px variables.$secondary-color
+            font-size: 1.3rem
+            text-align: center
+            padding: 30px
+            width: 400px
+
+            @include screen.mobile
+                width: 100%
+                padding: 20px
+                font-size: 1.2rem
+
+            &:hover
+                color: variables.$secondary-color
+                background: transparent
+
+
+
+
+

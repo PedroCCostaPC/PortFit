@@ -1,0 +1,458 @@
+@use '../1-base/variables'
+@use '../1-base/screen'
+@use '../1-base/mixins'
+
+#main-academy-information
+    width: 85%
+    display: flex
+    flex-direction: column
+    margin-top: 50px
+
+    @include screen.mobile
+        width: 100%
+
+    // Titulos da page
+    .h2-academy-information
+        color: variables.$text
+        background: variables.$primary-color
+        font-size: 1.2rem
+        font-family: 'Roboto-Light'
+        padding: 20px
+
+
+    // ------------------- LOCALIZACAO -------------------
+    #academy-location
+        margin-bottom: 50px
+
+        @include screen.mobile
+            margin-bottom: 0
+
+        form
+            margin-top: 5px
+
+            .banner
+                position: relative
+                width: 100%
+
+                .img
+                    height: 600px
+                    width: 100%
+                    display: flex
+                    background: variables.$gray
+                    overflow: hidden
+                    display: flex
+                    justify-content: center
+                    align-items: center
+
+                    @include screen.mobile
+                        min-height: 170px
+                        height: auto
+
+                    img
+                        width: 100%
+                        min-height: 100%
+
+                .btn-file
+                    position: absolute
+                    bottom: 20px
+                    left: 20px
+
+            // Numero e Cep
+            .row.number-cep
+                display: flex
+
+                .number
+                    position: relative
+                    margin-right: 20px
+                    width: 100px
+
+                .cep
+                    position: relative
+                    width: 200px
+
+            // Estado e UF
+            .row.state-uf
+                display: flex
+
+                .state
+                    position: relative
+                    width: 100%
+                    margin-right: 20px
+
+                .uf
+                    position: relative
+                    width: 100px
+
+
+    // ------------------- CONTATO -------------------
+    #academy-contact
+        padding-top: 75px
+        margin-bottom: 50px
+
+        @include screen.mobile
+            margin-bottom: 0
+
+        .row.ddd-phone
+            display: flex
+
+            .ddd
+                position: relative
+                width: 70px
+                margin-right: 20px
+
+                input
+                    text-align: center
+            
+            .phone
+                position: relative
+                width: 85%
+                max-width: 350px
+
+
+    // ------------------- HORARIOS -------------------
+    #academy-time
+        padding-top: 75px
+        margin-bottom: 50px
+
+        @include screen.mobile
+            margin-bottom: 0
+
+        .h2-academy-information
+            margin-bottom: 20px
+
+        .row
+            display: flex
+            margin-bottom: 70px
+            justify-content: space-evenly
+
+            @include screen.mobile
+                flex-direction: column
+                margin-bottom: 0
+                align-items: center
+
+            .col
+                @include screen.mobile
+                    margin-bottom: 20px
+
+                label
+                    color: variables.$placeholder
+                    margin-left: 20px
+
+                .time
+                    display: flex
+                    align-items: center
+                    color: variables.$placeholder
+                    margin-top: 10px
+                    margin-bottom: 30px
+
+                    span
+                        font-weight: bold
+                        font-size: 1.5rem
+
+                        &.point
+                            color: variables.$placeholder
+
+                    input
+                        width: 70px
+                        margin: 0 10px
+                        text-align: center
+                        border: none
+                        border-bottom: solid 1px variables.$placeholder
+                        padding: 10px
+
+                        @include screen.mobile
+                            margin: 0 5px
+
+                        &:focus
+                            border-bottom: solid 1px variables.$secondary-color
+
+        
+    // ------------------- FOTOS -------------------
+    #academy-photos
+        padding-top: 75px
+        margin-bottom: 50px
+
+        @include screen.mobile
+            margin-bottom: 0
+
+        .photos
+            display: flex
+            flex-wrap: wrap
+            margin-top: 5px
+
+            .photo
+                position: relative
+                width: 33%
+                height: 200px
+                float: left
+                display: flex
+                justify-content: center
+                align-items: center
+                margin: 0 .15%
+                background-size: cover
+                background-position: center
+                background-repeat: no-repeat
+                margin-bottom: 3px
+
+                @include screen.mobile
+                    width: 49%
+                    height: 150px
+
+                .btn-trash-photo
+                    position: absolute
+                    bottom: 10px
+                    right: 10px
+                    background: variables.$critical
+                    width: 50px
+                    height: 50px
+                    border: solid 2px variables.$critical
+                    border-radius: 100%
+
+                    i
+                        font-size: 1.5rem
+                        color: variables.$text
+                        transition: .3s
+
+                    &:hover
+                        background: transparent
+
+                        i
+                            color: variables.$critical
+
+                // Overlay
+                .overlay .main-box
+                    img
+                        width: 100%
+                        max-width: 550px
+                        margin-top: 20px
+
+                    form
+                        margin-top: 30px
+
+            // btn add photo
+            #add-photo
+                width: 33%
+                height: 200px
+                float: left
+                margin: 0 .15%
+                font-size: 1.5rem
+                color: variables.$text
+                background: variables.$primary-color
+
+                @include screen.mobile
+                    width: 49%
+                    height: 150px
+
+                &:hover
+                    background: variables.$secondary-color
+
+            #overlay-add-photos
+                .main-box
+                    position: relative
+                    width: 95%
+                    height: 95%
+                    border-radius: 0
+
+                    h2 span
+                        color: variables.$text
+                        font-family: 'Roboto-Light'
+
+                        small
+                            color: variables.$secondary-color
+                            font-family: 'Roboto-Light'
+
+                    form
+                        margin-top: 30px
+
+                        .btn-file
+                            position: absolute
+                            right: 20px
+                            top: 100px
+
+                            @include screen.mobile
+                                left: 20px
+                                top: 180px
+
+                        .btn-standard-form
+                            position: absolute
+                            bottom: 20px
+
+                        .preview-photos
+                            width: 100%
+                            max-height: 100%
+                            height: 500px
+                            overflow: auto
+
+                            @include screen.mobile
+                                max-height: 270px
+                                margin-top: 70px
+
+                            &::-webkit-scrollbar 
+                                width: 5px
+
+                            &::-webkit-scrollbar-track 
+                                background: transparent
+                            
+                            &::-webkit-scrollbar-thumb 
+                                background-color: variables.$secondary-color
+                                border: none
+
+                            img
+                                max-width: 200px
+                                max-height: 100px
+                                margin: 5px
+
+    
+    // ------------------- REDES SOCIAIS -------------------
+    #academy-socials
+        padding-top: 75px
+        margin-bottom: 80px
+
+        #socials
+            display: flex
+            flex-wrap: wrap
+            
+            #btn-add-social, .social-dash
+                flex-basis: 29.5%
+                margin: 20px 1.9%
+                @include mixins.shadow-primary
+                height: 350px
+                border-radius: 5px
+
+                @include screen.mobile
+                    flex-basis: 80%
+                    margin: 20px 0
+                    margin-left: 10%
+
+
+            #btn-add-social
+                font-size: 1.5rem
+                color: variables.$text
+                background-color: variables.$primary-color
+
+                &:hover
+                    background-color: variables.$secondary-color
+
+            .social-dash
+                position: relative
+                display: flex
+                flex-direction: column
+                align-items: center
+                padding: 20px
+
+                img
+                    max-width: 60px
+                    max-height: 60px
+                    margin-top: 20px
+
+                h3
+                    margin-top: 30px
+                    font-size: 1.3rem
+
+                .btns
+                    position: absolute
+                    width: 100%
+                    bottom: 20px
+                    padding: 0 20px
+                    display: flex
+                    justify-content: end
+
+                    button
+                        width: 50px
+                        height: 50px
+                        border-radius: 100%
+                        margin-left: 10px
+
+                        i
+                            font-size: 1.5rem
+                            color: variables.$text
+                            transition: .3s
+
+                        &.btn-alter
+                            background: variables.$btn-file
+                            border: solid 2px variables.$btn-file
+
+                            &:hover
+                                background: transparent
+
+                                i
+                                    color: variables.$btn-file
+
+                        &.btn-delete
+                            background: variables.$critical
+                            border: solid 2px variables.$critical
+
+                            &:hover
+                                background: transparent
+
+                                i
+                                    color: variables.$critical
+
+            // Overlay
+            .overlay .main-box
+                width: 90%
+                max-width: 500px
+
+                .box
+                    @include screen.mobile
+                        padding: 20px 10px
+
+                form
+                    .btn-file-social
+                        display: flex
+                        justify-content: center
+
+                        input
+                             display: none
+
+                        label
+                            width: 150px
+                            height: 150px
+                            margin-top: 10px
+                            background: variables.$gray
+                            border-radius: 100%
+                            display: flex
+                            justify-content: center
+                            align-items: center
+                            flex-direction: column
+                            cursor: pointer
+                            border: dotted 2px variables.$placeholder
+                            transition: .3s
+                            overflow: hidden
+
+                            &:hover
+                                background: variables.$placeholder
+
+                            i
+                                font-size: 2rem
+
+                            img
+                                max-width: 50%
+                                max-height: 50%
+
+                    .row
+                        margin: 40px 0
+
+            .overlay-alter .main-box
+                form img
+                    margin-top: 0
+
+
+            .overlay-delete .main-box
+                max-width: 400px
+
+                h2 span
+                    color: variables.$text
+
+                .mini-box
+                    display: flex
+                    flex-direction: column
+                    align-items: center
+
+                    img
+                        max-width: 100px
+                        max-height: 100px
+
+                    h3
+                        font-size: 1.3rem
+                        margin-bottom: 70px

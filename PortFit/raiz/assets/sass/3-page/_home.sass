@@ -1,0 +1,628 @@
+@use '../1-base/variables'
+@use '../1-base/screen'
+@use '../1-base/mixins'
+
+// ------------------ SLIDE ------------------
+#slide ul
+    position: relative
+    max-width: variables.$container-width
+    margin: 0 auto
+    z-index: 0
+
+    .slick-prev, .slick-next
+        position: absolute
+        top: 230px
+        background: transparent
+
+        &::before, &::before
+            display: none
+
+        @include screen.mobile
+            display: none !important
+
+        i
+            color: variables.$secondary-color
+            font-size: 3rem
+
+    .slick-prev
+        left: 30px
+        z-index: 1
+
+    .slick-next
+        right: 30px
+
+    li
+        width: 100%
+        height: 550px
+        background-size: cover
+        background-position: center
+
+        @include screen.mobile
+            height: 500px
+
+        div
+            height: 100%
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            background-color: rgba(0, 0, 0, 0.5)
+            padding: 0 20px
+
+            h1, p, a
+                color: variables.$text
+
+            h1
+                font-size: 3.5rem
+                text-shadow: #000 3px 2px 3px
+
+            p
+                font-size: 1.5rem
+                margin: 30px 0 40px 0
+                text-align: center
+                text-shadow: #000 3px 2px 3px
+
+            a
+                background: variables.$secondary-color
+                font-size: 1.3rem
+                padding: 15px 70px
+                border-radius: 5px
+                border: solid 2px variables.$secondary-color
+
+                &:hover
+                    background: transparent
+                    color: variables.$secondary-color
+
+
+// ------------------ ENDERECO ------------------
+// NOTA = Esse id é usado na home e em contato
+#address-common
+    margin-top: 50px
+
+    h1
+        font-size: 2rem
+        font-family: 'Roboto-Light'
+        line-height: 32px
+
+        span
+            color: variables.$secondary-color
+
+    .row
+        margin: 0 auto
+        margin-top: 30px
+        max-width: variables.$container-width
+        display: flex
+        align-items: center
+
+        @include screen.mobile
+            flex-direction: column
+
+        .banner
+            position: relative
+            width: 55%
+            height: 550px
+            background-size: cover
+            background-position: center
+
+            @include screen.mobile
+                width: 100%
+                height: 270px
+
+                .bar
+                    display: none
+
+            .bar
+                position: absolute
+                width: 100%
+                height: 100%
+                border: solid 3px variables.$secondary-color
+                top: 50px
+                left: 50px
+
+        // INFORMACOES
+        .address
+            width: 45%
+            padding: 0 20px 0 80px
+
+            @include screen.mobile
+                width: 100%
+                padding: 0 20px
+                margin-top: 20px
+
+            .row-1
+                width: 100%
+                border: solid 1px variables.$secondary-color
+                border-radius: 5px
+                margin-bottom: 20px
+                display: flex
+
+                &:last-child
+                    margin-bottom: 0
+                
+                .col
+                    padding: 20px
+
+                    &:first-child
+                        padding-right: 10px
+
+                        i
+                            color: variables.$secondary-color
+                            font-size: 3rem
+
+                    &:last-child
+                        width: 100%
+
+                    h2
+                        margin-bottom: 20px
+                        font-size: 1.3rem
+
+                    .col-1 p
+                        font-family: 'Roboto-Medium'
+                        line-height: 30px
+
+                    // HORARIOS
+                    .time
+                        width: 70%
+                        display: flex
+                        justify-content: space-between
+
+                        @include screen.mobile
+                            width: 100%
+
+                        .col-1:last-child
+                            text-align: center
+
+            // BTN MAPA
+            a
+                display: block
+                width: 100%
+                color: variables.$secondary-color
+                background: variables.$primary-color
+                text-align: center
+                padding: 16px
+                border-radius: 5px
+                border: solid 2px variables.$primary-color
+
+                &:hover
+                    font-family: 'Roboto-Medium'
+                    color: variables.$primary-color
+                    background: transparent
+
+
+// ------------------ MODALIDADES ------------------
+#home-modality
+    max-width: variables.$container-width 
+    margin: 0 auto
+    margin-top: 100px
+
+    @include screen.mobile
+        margin-top: 60px
+
+    h1
+        margin-bottom: 30px
+
+    .modalities 
+        .slick-dots li button:before
+            font-size: 40px
+            color: variables.$secondary-color
+            opacity: 1
+
+        .slick-dots li.slick-active button:before
+            color: variables.$primary-color
+            opacity: 1
+
+        .box-main
+            height: 400px
+            background-position: center
+            background-size: cover
+            background-repeat: no-repeat
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6), #000)
+
+            .box
+                background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6), #000)
+                padding: 20px
+                width: 100%
+                height: 100%
+
+                h2
+                    text-align: center
+                    color: variables.$text
+                    font-size: 1.5rem
+                    font-family: 'Roboto-Light'
+                    text-shadow: #000 3px 2px 3px
+                    border-bottom: solid 1px variables.$secondary-color
+                    padding-bottom: 20px
+
+                .summary
+                    position: relative
+                    width: 60%
+                    height: 100%
+                    float: right
+
+                    @include screen.mobile
+                        width: 100%
+                        display: flex
+                        justify-content: center
+                    
+                    p
+                        color: variables.$text
+                        margin-top: 50px
+
+                        @include screen.mobile
+                            text-align: center
+
+                    a
+                        position: absolute
+                        bottom: 50px
+                        color: variables.$text
+                        background: variables.$secondary-color
+                        padding: 12px 40px
+                        border-radius: 5px
+                        border: solid 2px variables.$secondary-color
+
+                        &:hover
+                            background: transparent
+                            color: variables.$secondary-color
+
+        
+// ------------------ BLOG ------------------
+#home-blog
+    max-width: variables.$container-width 
+    margin: 0 auto
+    margin-top: 100px
+
+    .row
+        margin-top: 30px
+        width: 100%
+        display: flex
+        justify-content: space-around
+        flex-wrap: wrap
+
+        @include screen.mobile
+            padding: 0 20px
+
+        .col
+            position: relative
+            flex-basis: 33.26%
+            background: variables.$gray
+            height: 520px
+
+            @include screen.mobile
+                flex-basis: 100%
+                margin-bottom: 30px
+                height: 470px
+
+            &:nth-child(2)
+                margin: 0 .11%
+
+                @include screen.mobile
+                    margin: 0 0 30px 0
+
+            &:last-child
+                @include screen.mobile
+                    margin: 0
+                
+
+            .banner
+                width: 100%
+                height: 250px
+                background-size: cover
+                background-position: center
+                background-repeat: no-repeat
+
+                @include screen.mobile
+                    height: 200px
+
+            .box
+                padding: 20px
+
+                h2
+                    text-align: center
+                    font-size: 1.3rem
+                    margin-bottom: 20px
+                    
+                a
+                    position: absolute
+                    color: variables.$text
+                    background: variables.$secondary-color
+                    border: solid 2px variables.$secondary-color
+                    bottom: 20px
+                    right: 20px
+                    padding: 10px 25px
+                    border-radius: 5px
+
+                    &:hover
+                        color: variables.$secondary-color
+                        background: transparent
+
+        .btn-more-tips
+            margin-top: 30px
+            color: variables.$secondary-color
+            background: variables.$primary-color
+            border: solid 2px variables.$primary-color
+            border-radius: 50px
+            padding: 12px 90px
+            font-family: 'Roboto-Medium'
+
+            @include screen.mobile
+                margin-top: 0
+
+            &:hover
+                color: variables.$primary-color
+                background: transparent
+
+
+// ------------------ ALUNO ------------------
+#home-student
+    max-width: variables.$container-width 
+    margin: 0 auto
+    margin-top: 100px
+    margin-bottom: 70px
+    display: flex
+    width: 100%
+    background: variables.$secondary-color
+    justify-content: center
+    align-items: center
+
+    @include screen.mobile
+        flex-direction: column
+        margin-top: 70px
+
+    .col
+        width: 40%
+        padding: 50px 0
+
+        @include screen.mobile
+            width: 100%
+            padding: 50px 20px
+
+            &:last-child
+                padding-top: 20px
+                text-align: center
+
+        h1
+            font-size: 1.5rem
+            font-family: 'Roboto-Medium'
+            margin-bottom: 50px
+
+        ul
+            list-style: outside
+            padding-left: 18px
+            padding-bottom: 50px
+
+            @include screen.mobile
+                padding-bottom: 30px
+            
+            li
+                font-family: 'Roboto-Medium'
+                margin-bottom: 20px
+
+        .link
+            @include screen.mobile
+                text-align: center
+
+            a
+                color: variables.$secondary-color
+                background: variables.$primary-color
+                border: solid 2px variables.$primary-color
+                border-radius: 5px
+                padding: 15px 70px
+                font-family: 'Roboto-Medium'
+
+                &:hover
+                    color: variables.$primary-color
+                    background: transparent
+
+        img
+            width: 100%
+            max-width: 450px
+
+            @include screen.mobile
+                max-width: 300px
+
+
+// ------------------ PRECOS ------------------
+#home-price, #home-price-mobile
+    max-width: variables.$container-width
+    margin: 0 auto
+    margin-bottom: 100px
+
+    @include screen.mobile
+        margin-bottom: 50px
+
+    .price-main
+        display: flex
+        justify-content: space-between
+        width: 90%
+        margin-left: 5%
+        margin-top: 30px
+
+        .emphasis, .prices .all-prices
+            position: relative
+            @include mixins.shadow-primary
+            display: flex
+            flex-wrap: wrap
+            flex-direction: column
+            border-radius: 5px
+            padding: 20px
+
+            .row-1
+                height: 190px
+                display: flex
+                flex-direction: column
+                align-items: center
+                justify-content: space-between
+                border-bottom: solid 1px variables.$placeholder
+                padding-bottom: 20px
+                width: 80%
+                margin-left: 10%
+
+                .flat
+                    background-size: cover
+                    background-position: center
+                    background-repeat: no-repeat
+                    display: flex
+                    justify-content: center
+                    align-items: center
+
+                    p
+                        color: variables.$secondary-color
+                        font-size: 1.5rem
+                        font-family: 'Roboto-Medium'
+
+                    &.month
+                        width: 70px
+                        height: 70px
+
+                        p
+                            margin-top: 12px
+
+                    &.year
+                        width: 95px
+                        height: 80px
+
+                        p
+                            margin-top: -15px
+
+                h2
+                    font-size: 1.5rem
+
+                p
+                    font-family: 'Roboto-Bold'
+
+                    span
+                        font-size: 3rem
+                        font-family: 'Roboto-Bold'
+
+            .schemes
+                margin-top: 40px
+                margin-bottom: 40px
+
+                li
+                    margin-bottom: 15px
+                    display: flex
+                    align-items: center
+                    font-family: 'Roboto-Bold'
+
+                    i
+                        font-size: 1.5rem
+                        margin-right: 10px
+                        color: variables.$success
+
+            .link
+                position: absolute
+                bottom: 0
+                left: 0
+                text-align: center
+                width: 100%
+                padding: 0 10% 20px 10%
+
+                a
+                    display: block
+                    color: variables.$secondary-color
+                    background: variables.$primary-color
+                    border: solid 2px variables.$primary-color
+                    font-family: 'Roboto-Medium'
+                    padding: 12px 0
+                    border-radius: 5px
+
+                    &:hover
+                        color: variables.$primary-color
+                        background: transparent
+
+    .emphasis
+        width: 25%
+        margin: 0 20px
+        background: variables.$primary-color
+
+        .information
+            position: absolute
+            background: variables.$secondary-color
+            top: -20px
+            left: 5%
+            padding: 10px 20px
+            border-radius: 5px
+            width: 90%
+            text-align: center
+            @include mixins.shadow-secondary
+
+            p
+                font-family: 'Roboto-Bold'
+
+        .row-1
+            margin-top: 20px
+
+            p, h2, span
+                color: variables.$text
+
+        .schemes li
+            color: variables.$text
+
+        .link
+            a
+                color: variables.$primary-color !important
+                background: variables.$secondary-color !important
+                border: solid 2px variables.$secondary-color !important
+
+                &:hover
+                    color: variables.$secondary-color !important
+                    background: transparent !important
+
+
+    .prices
+        width: 75%
+
+        @include screen.mobile
+            width: 100%
+
+        .slick-arrow
+            z-index: 1
+
+            i
+                color: variables.$primary-color 
+                font-size: 2rem
+                margin: 0
+
+            &::before, &::before
+                display: none
+
+            &.slick-prev
+                left: -36%
+
+                @include screen.mobile
+                    left: -3%
+
+            &.slick-next
+                right: -3%
+                
+        .all-prices
+            margin: 20px
+
+        // Caso seja 4 price no carrossel
+        &.carousel-price-full
+            width: 100%
+
+            .slick-prev
+                left: -3%
+
+
+// Preco Mobile
+#home-price
+    @include screen.mobile
+        display: none
+
+#home-price-mobile
+    display: none
+
+    @include screen.mobile
+        display: block
+
+        .emphasis
+            margin: 30px 20px
+
+            .schemes 
+                padding-bottom: 30px
+
+        .all-prices
+            .schemes 
+                padding-bottom: 30px

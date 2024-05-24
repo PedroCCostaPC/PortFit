@@ -1,0 +1,73 @@
+@use '../1-base/variables'
+@use '../1-base/screen'
+
+footer
+    float: left
+    width: 100%
+    background: variables.$primary-color
+
+    .container
+        padding: 0 50px
+
+        @include screen.mobile
+            padding: 0 20px
+
+        .row
+            border-bottom: solid 1px variables.$secondary-color
+            display: flex
+            justify-content: space-around
+            padding: 50px 20px
+
+            @include screen.mobile
+                flex-direction: column
+                align-items: center
+                text-align: center
+                padding: 30px 0
+
+            &:nth-child(2)
+                padding: 70px 20px
+
+                @include screen.mobile
+                    padding: 30px 20px
+
+            &:nth-child(3), &:last-child
+                border-bottom: none
+
+            &:nth-child(3)
+                padding-bottom: 0
+
+                @include screen.mobile
+                    padding: 0 20px
+
+
+            li, a, p, h3
+                color: variables.$text
+
+            i
+                color: variables.$secondary-color
+
+            h3
+                font-size: 1.3rem
+                font-family: 'Roboto-Thin'
+                margin-bottom: 20px
+
+                @include screen.mobile
+                    margin-top: 50px
+
+            .col
+                li
+                    margin: 15px 0
+
+
+            &:nth-child(2)
+                .col:first-child
+                    h3
+                        @include screen.mobile
+                            margin-top: 0
+
+            a:hover
+                color: variables.$secondary-color
+
+            &:first-child
+                a
+                    color: variables.$secondary-color

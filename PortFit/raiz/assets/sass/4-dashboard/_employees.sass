@@ -1,0 +1,268 @@
+@use '../1-base/variables'
+@use '../1-base/screen'
+@use '../1-base/mixins'
+
+// ------------------------------ PAGINA FUNCIONARIOS ------------------------------
+#main-dash-employees
+    width: 85%
+    display: flex
+    flex-direction: column
+    margin-top: 50px
+    margin-bottom: 70px
+
+    @include screen.mobile
+        width: 100%
+
+    .add-and-employees
+        display: flex
+        justify-content: space-between
+
+    // Busca e filtros
+    .search-filter
+        margin-top: 20px
+        display: flex
+
+        @include screen.mobile
+            flex-direction: column
+            align-items: center
+
+        form
+            position: relative
+            width: 100%
+
+            input
+                border-radius: 5px
+                border-color: variables.$primary-color
+
+                @include screen.mobile
+                    margin-bottom: 10px
+
+            button
+                background: variables.$primary-color
+                position: absolute
+                right: 0
+                top: 0
+                width: 60px
+                height: 60px
+                border-radius: 0 5px 5px 0
+
+                i
+                    color: variables.$text
+                    font-size: 1.5rem
+
+    // Lista dos alunos
+    #employees
+        margin-top: 50px
+
+        article
+            margin-bottom: 50px
+
+            .article
+                display: flex
+                justify-content: space-between
+                align-items: center
+                border-radius: 5px
+                padding: 10px
+                transition: .3s
+                @include mixins.shadow-primary
+
+                &:hover
+                    @include mixins.shadow-secondary
+
+                @include screen.mobile
+                    flex-direction: column
+                    width: 90%
+                    margin-left: 5%
+                    padding-bottom: 20px
+
+                &.sketch
+                    background: variables.$placeholder
+                    opacity: .7
+
+                // Bnnaer / nome
+                .banner-name
+                    display: flex
+
+                    @include screen.mobile
+                        flex-direction: column
+                        align-items: center
+                        width: 100%
+
+                    .banner
+                        width: 120px
+                        height: 120px
+                        background-size: cover
+                        background-position: center
+                        background-repeat: no-repeat
+                        border-radius: 5px
+
+                        @include screen.mobile
+                            width: 150px
+                            height: 150px
+
+                    .name
+                        display: flex
+                        padding: 10px
+                        margin-left: 10px
+                        flex-direction: column
+                        justify-content: space-between
+                        padding: 20px 10px
+
+                        @include screen.mobile
+                            justify-content: center
+                            margin-bottom: 50px
+
+                        h2
+                            font-size: 1.3rem
+
+                        p
+                            font-family: 'Roboto-Medium'
+
+                // Botoes
+                .btns-standard-alter
+                    margin-right: 10px
+
+            // Overlay
+            .overlay, .main-box
+
+                h2 span
+                    color: variables.$text
+                    font-family: 'Roboto-Light'
+
+                .mini-box
+                    display: flex
+                    max-width: 500px
+                    flex-direction: column
+                    align-items: center
+                        
+                    .photo
+                        margin-top: 20px
+                        width: 150px
+                        height: 150px
+                        background-size: cover
+                        background-position: center
+                        background-repeat: no-repeat
+                        border-radius: 100%
+
+                    .warning
+                        margin: 20px 20px 50px 20px
+
+                        @include screen.mobile
+                            margin: 20px 0 50px 0
+
+                        p
+                            font-family: 'Roboto-Medium'
+                            font-size: 1.1rem
+                            margin-bottom: 10px
+
+                            span
+                                font-family: 'Roboto-Black'
+                                color: variables.$critical
+
+                            b
+                                font-family: 'Roboto-Black'
+
+                            small
+                                font-size: 1.1rem
+                                font-family: 'Roboto-Black'
+                                color: variables.$secondary-color
+
+    .pagenation-bottom
+        margin-top: -20px
+
+
+// ------------------------------ PAGINA CRIAR / ALTERAR FUNCIONARIO ------------------------------
+#main-dash-employee
+    width: 85%
+    display: flex
+    flex-direction: column
+    margin-top: 50px
+    margin-bottom: 70px
+
+    @include screen.mobile
+        width: 100%
+
+    // Foto do usuario
+    #photo
+        display: flex
+        flex-direction: column
+        align-items: center
+
+        .photo
+            width: 180px
+            height: 180px
+            background-size: cover
+            background-position: center
+            background-repeat: no-repeat
+            border-radius: 100%
+
+            &.photo-remove
+                background-image: url('../../assets/img/user.png') !important
+
+        button
+            background: variables.$critical
+            border: solid 2px variables.$critical
+            font-size: 1.1rem
+            color: variables.$text
+            padding: 15px 30px
+            border-radius: 5px
+            margin-top: 10px
+            
+            i
+                color: variables.$text
+                transition: .3s
+                margin-right: 5px
+
+            &:hover
+                background: transparent
+                color: variables.$critical
+
+                i
+                    color: variables.$critical
+
+    // Data de nascimento
+    .birth
+        .col
+            display: flex
+            padding-top: 10px
+
+            input
+                width: 70px
+                text-align: center
+                margin-right: 10px
+                border: none
+                border-bottom: solid 1px variables.$placeholder
+                padding-bottom: 10px
+
+                &:last-child
+                    width: 120px
+
+                &:focus
+                    border-color: variables.$secondary-color
+
+    // Sex
+    .sex
+        p
+            margin-left: 10px
+            margin-bottom: 15px
+
+    // Telefone
+    .phone
+        display: flex
+
+        .ddd
+            position: relative
+            width: 70px
+            margin-right: 20px
+
+        .number
+            width: 250px
+            position: relative
+
+    // Select do cargo
+    .positions
+        button
+            background: variables.$placeholder
+
+        ul
+            padding-right: 0

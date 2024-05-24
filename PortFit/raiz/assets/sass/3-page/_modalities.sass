@@ -1,0 +1,275 @@
+@use '../1-base/variables'
+@use '../1-base/screen'
+@use '../1-base/mixins'
+
+// ------------------ PAGINA DE MODALIDADES ------------------
+#modalities
+    margin-top: 70px
+
+    @include screen.mobile
+        margin-top: 30px
+
+    .main-modalities
+        margin-top: 50px
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-evenly
+
+        @include screen.mobile
+            margin-top: 30px
+
+        article
+            position: relative
+            flex-basis: 40%
+            @include mixins.shadow-primary
+            margin-bottom: 70px
+            border-radius: 5px
+            overflow: hidden
+
+            @include screen.mobile
+                flex-direction: column
+                flex-basis: 100%
+
+            .banner
+                width: 100%
+                height: 250px
+                background-size: cover
+                background-position: center
+                background-repeat: no-repeat
+
+            .box
+                padding: 20px 70px
+                margin-bottom: 90px
+
+                @include screen.mobile
+                    padding: 20px 40px
+
+                h2
+                    color: variables.$secondary-color
+                    text-align: center
+                    font-size: 1.5rem
+                    padding-bottom: 20px
+                    border-bottom: solid 1px variables.$placeholder
+
+                p
+                    margin-top: 30px
+                    font-family: 'Roboto-Medium'
+
+            a
+                position: absolute
+                bottom: 20px
+                right: 20px
+                color: variables.$text
+                background: variables.$secondary-color
+                border: solid 2px variables.$secondary-color
+                border-radius: 5px
+                padding: 12px 40px
+
+                &:hover
+                    color: variables.$secondary-color
+                    background: transparent
+
+
+// ------------------ PAGINA DA MODALIDADE ------------------
+#modality
+
+    // Resumo
+    #summary
+        max-width: variables.$container-width
+        margin: 0 auto
+        background-size: cover
+        background-position: center
+        background-repeat: no-repeat
+        height: 560px
+
+        .main-summary
+            width: 100%
+            height: 100%
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #000)
+
+            h1
+                color: variables.$text
+                text-align: center
+                text-shadow: #000 3px 2px 3px
+                font-size: 1.8rem
+                padding: 20px
+                border-bottom: solid 1px variables.$secondary-color
+
+            .main-box
+                position: relative
+                display: flex
+                justify-content: end
+                padding: 90px
+                height: 440px
+
+                @include screen.mobile
+                    padding: 50px 30px
+                    justify-content: center
+
+                .box
+                    width: 40%
+
+                    @include screen.mobile
+                        width: 100%
+                    
+                    p
+                        color: variables.$text
+                        line-height: 35px
+                        margin-bottom: 70px
+                        font-size: 1.2rem
+
+                    a, i
+                        color: variables.$secondary-color
+
+                    a
+                        background: variables.$text
+                        border: solid 2px variables.$text
+                        padding: 15px 80px
+                        border-radius: 5px
+                        position: absolute
+                        bottom: 0
+                        font-family: 'Roboto-Medium'
+                        font-size: 1.1rem
+                        display: flex
+                        align-items: center
+
+                        i
+                            margin-right: 7px
+                            font-size: 1.7rem
+
+                        &:hover
+                            background: transparent
+                            border: solid 2px variables.$secondary-color
+
+    // Como sao as aulas
+    #about
+        margin-top: 70px
+        display: flex
+        flex-direction: column
+        align-items: center
+
+        @include screen.mobile
+            margin-top: 30px
+
+        .title
+            @include screen.mobile
+                padding: 0
+            
+        
+        .box
+            width: 65%
+            margin-top: 50px
+            padding: 0 60px 50px 60px
+            border-bottom: solid 2px variables.$secondary-color
+
+            @include screen.mobile
+                width: 90%
+                padding: 0 0 50px 0
+                margin-top: 30px
+
+            p
+                text-align: center
+                line-height: 25px
+                font-family: 'Roboto-Medium'
+
+                @include screen.mobile
+                    text-align: left
+
+    // Porque fazer as aulas
+    #whyte
+        margin-top: 70px
+        margin-bottom: 70px
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+        
+        @include screen.mobile
+            flex-direction: column-reverse
+            margin-top: 30px
+
+        .col
+            flex-basis: 48%
+
+            @include screen.mobile
+                flex-basis: 100%
+
+            .banner
+                width: 100%
+                height: 100%
+                min-height: 400px
+                background-size: cover
+                background-position: center
+                background-repeat: no-repeat
+
+                @include screen.mobile
+                    height: 250px
+                    min-height: 250px
+
+            .title 
+                justify-content: left
+                margin-bottom: 30px
+
+                @include screen.mobile
+                    padding: 0
+
+            .box
+                @include screen.mobile
+                    padding: 0 20px
+
+                p
+                    line-height: 25px
+                    font-family: 'Roboto-Medium'
+
+            &:last-child
+                padding: 30px 0
+
+    // Horarios
+    #time
+        margin-bottom: 70px
+
+        .title
+            justify-content: left
+
+            @include screen.mobile
+                padding: 0
+
+        .main-time
+            display: flex
+            justify-content: center
+            flex-wrap: wrap
+            margin-top: 30px
+
+            @include screen.mobile
+                flex-direction: column
+                width: 90%
+                margin-left: 5%
+
+            .day
+                flex-basis: 24%
+                background: variables.$primary-color
+                margin: 0 5px 10px 5px
+                @include mixins.shadow-primary
+                padding: 40px 20px
+                text-align: center
+
+                @include screen.mobile
+                    flex-basis: 100%
+                    margin-bottom: 30px
+
+                h3
+                    color: variables.$secondary-color
+                    font-size: 1.3rem
+
+                ul
+                    margin-top: 30px
+                    li
+                        background: variables.$text
+                        margin-bottom: 20px
+                        font-size: 1.3rem
+                        font-family: 'Roboto-Medium'
+                        padding: 20px
+
+
+
+
+
